@@ -1,0 +1,10 @@
+title: Example Rule 2
+description: This is another example
+author: Tester Man
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        AccountName|contains: 'canary'
+    condition: selection

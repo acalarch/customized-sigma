@@ -1,0 +1,12 @@
+title: Example Rule 3
+description: This is another example
+author: Tester Man
+logsource:
+    product: windows
+    category: process_creation
+detection:
+    selection:
+        Image|contains: 'rundll32.exe'
+    filter:
+        OriginalFileName|contains: rundll32.exe
+    condition: selection AND NOT filter

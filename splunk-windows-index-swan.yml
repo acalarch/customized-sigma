@@ -1,0 +1,28 @@
+title: Splunk Windows index and EventID field mapping
+order: 30
+backends:
+  - splunk
+  - splunkxml
+  - splunkdm
+  - splunkxml2
+logsources:
+  windows-process:
+    product: windows
+    category: process_creation
+    conditions:
+        source: Micosoft-Windows-Sysmon
+        EventCode: 1
+  windows:
+    product: windows
+    index: 
+     - prod-windows
+     - dev-windows
+     - windows
+    conditions:
+        source: 
+            - Microsoft-Windows-Security
+            - Microsoft-Windows-System
+fieldmappings:
+    EventID: EventCode
+    Image: NewProcessName
+logsourcemerging: or

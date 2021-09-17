@@ -1,0 +1,10 @@
+title: Example Rule 3
+description: This is another example
+author: Tester Man
+logsource:
+    product: windows
+    category: process_creation
+detection:
+    selection:
+        AccountName|contains: %admins%
+    condition: selection AND NOT filter
